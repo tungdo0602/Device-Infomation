@@ -32,7 +32,7 @@
                   
                     return os;
                   }
-                document.getElementById('ip').innerText = (await window.fetch('http://ip-api.com/json/?fields=8192').then(res=>res.json())).query;
+                document.getElementById('ip').innerText = (await fetch('https://api.ipify.org?format=json').then(res=>res.json())).ip;
                 document.getElementById('sr').innerText = (window.screen.width * window.devicePixelRatio) + " x " + (window.screen.height * window.devicePixelRatio);
                 document.getElementById('os').innerText = getOS();
                 document.getElementById('ram').innerText = window.navigator.deviceMemory + "GB";
