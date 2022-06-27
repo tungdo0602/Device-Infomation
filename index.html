@@ -41,10 +41,12 @@
                 document.getElementById('sr').innerText = (window.screen.width * window.devicePixelRatio) + " x " + (window.screen.height * window.devicePixelRatio);
                 document.getElementById('os').innerText = getOS();
                 document.getElementById('ram').innerText = window.navigator.deviceMemory + "GB";
-                window.setInterval(async ()=>{document.getElementById('bl').innerText = await navigator.getBattery().then(res=>res.level*100)},10)
-                window.setInterval(async ()=>{document.getElementById('bc').innerText = (await navigator.getBattery()).charging},10);
-                window.setInterval(async ()=>{document.getElementById('mobile').innerText = navigator.userAgentData.mobile},10);
-                window.setInterval(()=>{document.getElementById('cbwh').innerText = window.outerWidth*window.devicePixelRatio + " / " + window.outerHeight*window.devicePixelRatio},10); 
+                window.setInterval(async ()=>{
+                  document.getElementById('bl').innerText = await navigator.getBattery().then(res=>res.level*100);
+                  document.getElementById('bc').innerText = (await navigator.getBattery()).charging;
+                  document.getElementById('mobile').innerText = navigator.userAgentData.mobile;
+                  document.getElementById('cbwh').innerText = window.outerWidth*window.devicePixelRatio + " / " + window.outerHeight*window.devicePixelRatio;
+                },10)
             }
         </script>
     </body>
