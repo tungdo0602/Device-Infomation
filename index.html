@@ -9,8 +9,12 @@
         <p>Is Device Charging: <strong id="bc"></strong></p>
         <p>Device Battery: <strong id="bl"></strong></p>
         <p>Is Mobile: <strong id="mobile"></strong></p>
-        <script>
-            window.onload = async function() {
+        <script defer>
+            (async function() {
+                function handleTheme(e){
+                    if(e){document.body.style.backgroundColor='#000000';document.body.style.color='#ffffff'}else{document.body.style.backgroundColor='#ffffff';document.body.style.color='#000000'}
+                }
+                if(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)")){handleTheme(window.matchMedia("(prefers-color-scheme: dark)").matches);window.matchMedia("(prefers-color-scheme: dark)").onchange=function(){handleTheme(this.matches)}}
                 function getOS() {
                     var userAgent = window.navigator.userAgent,
                         platform = window.navigator?.userAgentData?.platform || window.navigator.platform,
@@ -47,7 +51,7 @@
                   document.getElementById('mobile').innerText = navigator.userAgentData.mobile;
                   document.getElementById('cbwh').innerText = window.outerWidth*window.devicePixelRatio + " / " + window.outerHeight*window.devicePixelRatio;
                 },10)
-            }
+            })();
         </script>
     </body>
 </html>
